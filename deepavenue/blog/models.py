@@ -23,6 +23,14 @@ class Post(models.Model):
         return self.title
 
 
+class HomePage(Page):
+    body = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('body', classname="full"),
+    ]
+
+
 class BlogIndexPage(Page):
     intro = RichTextField(blank=True)
 
