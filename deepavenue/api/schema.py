@@ -3,8 +3,6 @@ import graphene
 from graphene_django import DjangoObjectType
 from blog.models import BlogPage
 
-from django.db import models
-
 
 class ArticleNode(DjangoObjectType):
     class Meta:
