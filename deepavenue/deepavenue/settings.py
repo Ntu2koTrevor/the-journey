@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'api',
     'blog',
+    'graphene_django',
 
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
@@ -141,3 +143,7 @@ MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 
 WAGTAIL_SITE_NAME = 'Deep Avenue'
+
+GRAPHENE = {
+    'SCHEMA': 'api.schema.schema',
+}
