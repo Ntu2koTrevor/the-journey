@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'wagtail.wagtailsearch',
     'wagtail.wagtailadmin',
     'wagtail.wagtailcore',
+    'wagtail_modeltranslation',
 
     'modelcluster',
     'taggit',
@@ -69,6 +70,7 @@ MIDDLEWARE = [
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'deepavenue.urls'
@@ -135,6 +137,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+LANGUAGES = (
+    ('pt', u'Português'),
+    ('es', u'Espanhol'),
+    ('fr', u'Francês'),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/

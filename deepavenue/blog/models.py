@@ -4,6 +4,7 @@ from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailsearch import index
+from deepavenue.settings import LANGUAGES
 
 
 class Post(models.Model):
@@ -53,4 +54,20 @@ class BlogPage(Page):
         FieldPanel('date'),
         FieldPanel('intro'),
         FieldPanel('body', classname="full"),
+    ]
+
+
+class SmsPage(Page):
+    message = models.CharField(max_length=200)
+    language = models.CharField(max_length=6, null=True, blank=True,
+                                choices=LANGUAGES)
+
+    search_fields = Page.search_fields + [
+        index.SearchField('message'),
+        index.SearchField('language'),
+    ]
+
+    content_panels = Page.content_panels + [
+        FieldPanel('message'),
+        FieldPanel('language'),
     ]
