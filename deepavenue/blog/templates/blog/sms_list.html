@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for sms in smss %}
+        <div class="post">
+            <div class="date">
+                <p>title: {{ sms.title }}</p>
+            </div>
+            <h1><a href="{% url 'sms_detail' pk=sms.pk %}">{{ sms.message }}</a></h1>
+            <p>{{ sms.language|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

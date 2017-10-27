@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post
+from .models import Post, SmsPage
 from django.shortcuts import get_object_or_404
 
 
@@ -13,3 +13,13 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
+
+
+def sms_list(request):
+    smss = SmsPage.objects.all()
+    return render(request, 'blog/sms_list.html', {'smss': smss})
+
+
+def sms_detail(request, pk):
+    sms = get_object_or_404(SmsPage, pk=pk)
+    return render(request, 'blog/sms_detail.html', {'sms': sms})

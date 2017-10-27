@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if sms.title %}
+            <div class="date">
+                {{ sms.title }}
+            </div>
+        {% endif %}
+        <h1>{{ sms.message }}</h1>
+        <p>{{ sms.language|linebreaksbr }}</p>
+    </div>
+{% endblock %}
